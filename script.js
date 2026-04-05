@@ -18,7 +18,7 @@ const countdownFunc = setInterval(function() {
     document.getElementById("seconds").innerText = s;
 
     // Jika waktu habis (sudah hari-H)
-    if (true) {
+    if (distance < 0) {
         clearInterval(countdownFunc);
         showPage('page-lock');
     }
