@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HBD BRO! ✨</title>
+    <title>TUNGGU BENTAR... ✨</title>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -12,6 +12,16 @@
 
     <div class="main-container">
 
+        <div id="page0" class="page active">
+            <div class="box timer-box">
+                <div class="emoji-float">⏳</div>
+                <h2>MENGHITUNG MUNDUR...</h2>
+                <p>Sabar ya, lagi nyiapin kejutan buat kawan gua yang satu ini.</p>
+                <div id="countdown" class="countdown-number">5</div>
+                <p style="font-size: 0.8rem; opacity: 0.7;">Jangan di-refresh, tungguin aja!</p>
+            </div>
+        </div>
+        
         <div id="page1" class="page active">
             <div class="box">
                 <div class="emoji-float">🔒</div>
@@ -74,8 +84,21 @@
 
     </div>
 
-    <script>
-        // Ganti password di sini (Huruf kecil semua biar aman)
+<script>
+        // LOGIKA TIMER DI AWAL
+        let timeLeft = 5; // Detik timer (bisa lu ganti)
+        const timerElement = document.getElementById('countdown');
+
+        const countdownTimer = setInterval(() => {
+            timeLeft--;
+            timerElement.innerText = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(countdownTimer);
+                nextPage(1); // Otomatis pindah ke Security Area
+            }
+        }, 1000);
+
+        // LOGIKA PASSWORD & PAGE
         const passwordBenar = "nama lu"; 
 
         function checkPassword() {
@@ -98,8 +121,7 @@
             confetti({
                 particleCount: 150,
                 spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#f472b6', '#fbbf24', '#3b82f6']
+                origin: { y: 0.6 }
             });
         }
     </script>
