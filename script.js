@@ -18,7 +18,7 @@ const countdownFunc = setInterval(function() {
     document.getElementById("seconds").innerText = s;
 
     // Jika waktu habis (sudah hari-H)
-    if (distance < 0) {
+    if (true) {
         clearInterval(countdownFunc);
         showPage('page-lock');
     }
@@ -36,12 +36,12 @@ function verifikasi() {
     const input = document.getElementById('passInput').value.toLowerCase();
     
     // GANTI "nama lu" JADI NAMA PANGGILAN LU SENDIRI
-    const passBenar = "nama lu"; 
+    const passBenar = "elisa"; 
 
-    if(input === passBenar || input === "kamu" || input === "lu") {
+    if(input === passBenar || input === "elisa") {
         showPage('page-content');
     } else {
-        alert('SALAH! Masa lupa kawan sekelas sendiri? Coba lagi! 🚩');
+        alert('SALAH! Masa Minder? Coba lagi! 🚩');
     }
 }
 
