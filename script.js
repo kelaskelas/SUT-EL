@@ -1,6 +1,6 @@
 function checkPassword() {
     const pass = document.getElementById('passwordInput').value.toLowerCase();
-    if(pass === 'elisa' || pass === 'lu') { // Ganti sesuai keinginan
+    if(pass === 'elisa') { // Ganti sesuai keinginan
         nextPage(2);
     } else {
         alert('SALAH! Masa lu minder? 🚩');
