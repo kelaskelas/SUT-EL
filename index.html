@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD ELL! ✨</title>
+    <meta property="og:title" content="Woy, Buka Ini Cepat! 🚨">
+    <meta property="og:description" content="Ada pesan penting buat lo di dalam.">
+    <meta property="og:image" content="https://www.dropbox.com/scl/fi/gi87vopwpyf6opemdjwji/WhatsApp-Image-2026-04-05-at-18.47.52.jpeg?rlkey=v8vgghmindmrwn5m8xd1usl3a&st=9mhpztwk&raw=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            background: #0f172a; 
+            color: white; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+        }
+        .hidden { display: none; }
+        .glass { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #f472b6, #fb923c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div id="section-countdown" class="text-center space-y-6">
+        <h1 class="text-3xl font-extrabold tracking-tight text-pink-400">SABAR DULU, BRO...</h1>
+        <p class="text-slate-400">Ada sesuatu buat lo 10 hari lagi!</p>
+        <div id="timer" class="text-5xl md:text-7xl font-mono font-black text-white">
+            00:00:00:00
+        </div>
+        <p class="text-sm text-slate-500 italic">Target: 14 April 2026</p>
+    </div>
+
+    <div id="section-quest" class="hidden w-full max-w-md text-center space-y-8">
+        <div class="space-y-2">
+            <h2 class="text-3xl font-extrabold gradient-text">LOG IN REQUIRED</h2>
+            <p class="text-slate-400 text-sm">Buktikan kalau lo emang kawan sekelas gue!</p>
+        </div>
+        
+        <div class="glass p-8 rounded-3xl shadow-2xl space-y-6 border-pink-500/20">
+            <p id="question-text" class="text-xl font-semibold">Minuman apa yang paling sering kita beli pas jam kosong?</p>
+            
+            <div class="grid gap-3">
+                <button onclick="wrongAnswer(this)" class="w-full p-4 rounded-2xl bg-white/5 hover:bg-red-500/20 border border-white/10 transition text-left">
+                    A. Jus Alpukat (Kemahalan bro)
+                </button>
+                <button onclick="rightAnswer()" class="w-full p-4 rounded-2xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 transition text-left text-pink-300">
+                    B. Es Teh Kantin (Wajib & Mutlak!)
+                </button>
+                <button onclick="wrongAnswer(this)" class="w-full p-4 rounded-2xl bg-white/5 hover:bg-red-500/20 border border-white/10 transition text-left">
+                    C. Gak beli apa-apa, minta punya lo
+                </button>
+            </div>
+            <p id="error-msg" class="text-red-400 text-sm font-medium opacity-0 transition-opacity">Salah bro! Coba inget lagi masa-masa suram itu. 😂</p>
+        </div>
+    </div>
+
+    <div id="section-universe" class="hidden w-full max-w-2xl py-12 space-y-12 animate-fade-in">
+        
+        <div class="text-center space-y-4">
+            <h1 class="text-5xl md:text-7xl font-black gradient-text">HAPPY BIRTHDAY! 🎂</h1>
+            <p class="text-lg text-slate-300">Selamat bertambah tua, kawan se-per-gabutan!</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
+                <span class="text-4xl">🏆</span>
+                <h3 class="font-bold text-pink-400 mt-2 text-xl">Duta Ketawa Gak Jelas</h3>
+                <p class="text-sm text-slate-400 mt-2">Gak perlu foto buat inget gimana recehnya lo pas kita lagi bahas hal gak penting di kelas.</p>
+            </div>
+            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
+                <span class="text-4xl">📚</span>
+                <h3 class="font-bold text-pink-400 mt-2 text-xl">Survivor Jam Kosong</h3>
+                <p class="text-sm text-slate-400 mt-2">Inget gak pas kita pura-pura ke perpus padahal cuma mau ngadem doang?</p>
+            </div>
+            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
+                <span class="text-4xl">🥤</span>
+                <h3 class="font-bold text-pink-400 mt-2 text-xl">Es Teh Mentor</h3>
+                <p class="text-sm text-slate-400 mt-2">Saksi bisu obrolan-obrolan absurd kita tiap istirahat kedua.</p>
+            </div>
+            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
+                <span class="text-4xl">✨</span>
+                <h3 class="font-bold text-pink-400 mt-2 text-xl">Duta 'Gak Belajar'</h3>
+                <p class="text-sm text-slate-400 mt-2">Ngomongnya gak belajar, tapi pas nilai keluar tetep aja lo yang aman. Dasar!</p>
+            </div>
+        </div>
+
+        <div class="glass p-8 rounded-3xl border-2 border-pink-500/50 bg-gradient-to-br from-pink-500/10 to-transparent">
+            <h3 class="text-2xl font-bold mb-4">A Message for You:</h3>
+            <p class="text-slate-200 leading-relaxed italic">
+                "HBD ya! Meskipun kita jarang foto-foto (karena emang males aja sih), tapi memori pas sekolah tetep jadi yang paling gokil. Sukses terus buat kedepannya, jangan sombong-sombong, dan tetep jadi kawan yang asik buat diajak ghibah/nongkrong. Traktiran ditunggu ya!"
+            </p>
+            <div class="mt-6 pt-6 border-t border-white/10 flex justify-between items-center text-sm text-slate-500">
+                <span>Dari: Kawan Terbaik Lo</span>
+                <span>14 April 2026</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- LOGIC COUNTDOWN ---
+        const targetDate = new Date("April 14, 2026 00:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+
+            // Debug: Ganti distance < 0 jadi true kalau mau tes langsung tanpa nunggu hari-H
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("section-countdown").classList.add("hidden");
+                document.getElementById("section-quest").classList.remove("hidden");
+            }
+        }, 1000);
+
+        // --- LOGIC QUEST ---
+        function wrongAnswer(el) {
+            const msg = document.getElementById("error-msg");
+            msg.style.opacity = "1";
+            el.classList.add("border-red-500");
+            setTimeout(() => { 
+                msg.style.opacity = "0"; 
+                el.classList.remove("border-red-500");
+            }, 2000);
+        }
+
+        function rightAnswer() {
+            // Efek Konfeti
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#f472b6', '#fb923c', '#ffffff']
+            });
+
+            document.getElementById("section-quest").classList.add("hidden");
+            document.getElementById("section-universe").classList.remove("hidden");
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
