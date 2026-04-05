@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TUNGGU BENTAR... ✨</title>
+    <title>Sabar Ya... ✨</title>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -12,118 +12,81 @@
 
     <div class="main-container">
 
-        <div id="page0" class="page active">
-            <div class="box timer-box">
+        <div id="page-countdown" class="page active">
+            <div class="box">
                 <div class="emoji-float">⏳</div>
-                <h2>MENGHITUNG MUNDUR...</h2>
-                <p>Sabar ya, lagi nyiapin kejutan buat kawan gua yang satu ini.</p>
-                <div id="countdown" class="countdown-number">5</div>
-                <p style="font-size: 0.8rem; opacity: 0.7;">Jangan di-refresh, tungguin aja!</p>
+                <h2>SABAR YA, IMUT!</h2>
+                <p>Website ini bakal kebuka otomatis pas hari ultah lu.</p>
+                
+                <div class="timer-display">
+                    <div class="time-unit"><span id="days">00</span><small>Hari</small></div>
+                    <div class="time-unit"><span id="hours">00</span><small>Jam</small></div>
+                    <div class="time-unit"><span id="minutes">00</span><small>Menit</small></div>
+                    <div class="time-unit"><span id="seconds">00</span><small>Detik</small></div>
+                </div>
+                
+                <p style="font-size: 0.8rem; opacity: 0.7;">Balik lagi pas tanggal 14 April jam 00:00 ya!</p>
             </div>
         </div>
-        
-        <div id="page1" class="page active">
+
+        <div id="page-lock" class="page">
             <div class="box">
                 <div class="emoji-float">🔒</div>
-                <h2>RESTRICTED AREA</h2>
-                <p>Website ini dikunci. Masukin password buat lanjut.</p>
+                <h2>AKSES TERBUKA!</h2>
+                <p>Silakan masukin password buat liat isinya.</p>
                 <div class="input-group">
-                    <p style="font-size: 0.8rem; margin-bottom: 5px;"><b>Clue:</b> siapa yang imut hari ini?</p>
-                    <input type="text" id="passwordInput" placeholder="Ketik nama kawanmu itu...">
-                    <button onclick="checkPassword()" class="btn-main">BUKA AKSES ➔</button>
+                    <p style="font-size: 0.8rem; margin-bottom: 5px;"><b>Clue:</b> Siapa kawan sekelas lu yang paling keren?</p>
+                    <input type="text" id="passInput" placeholder="Ketik nama kawanmu itu...">
+                    <button onclick="verifikasi()" class="btn-main">MASUK ➔</button>
                 </div>
             </div>
         </div>
 
-        <div id="page2" class="page">
+        <div id="page-content" class="page">
             <div class="box header-box">
-                <div class="emoji-float">🎂✨</div>
-                <h1>HAPPY BIRTHDAY, <br><span>Elisa</span>!</h1>
-                <p>Cie nambah tua! Berhubung lu ultah, nih liat "arsip" kawan sekelas lu.</p>
+                <div class="emoji-float">🎂</div>
+                <h1>HAPPY BIRTHDAY, <br><span>ELISA</span>!</h1>
+                <p>Cie akhirnya kebuka juga websitenya wkwk.</p>
             </div>
 
             <div class="grid-layout">
                 <div class="bento-item photo-card">
-                    <img src="image.png" alt="Foto Lucu">
-                    <div class="label">POV: Lu di kelas</div>
+                    <img src="image.png" alt="Foto">
+                    <div class="label">Momen Paling Ajaib</div>
                 </div>
                 <div class="bento-item stats-card">
                     <h3>DATA LU:</h3>
                     <ul>
                         <li>✨ Mood: 99% Gabut</li>
-                        <li>🔥 Skill: Tukang Jajan</li>
-                        <li>🚀 Status: Ultah Cuy!</li>
+                        <li>🔥 Skill: Nagih uang</li>
+                        <li>🚀 Status: Nambah Tua</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="box message-box">
-                <p>"Semoga di umur baru ini lu makin pinter, nggak sering telat, dan tetep jadi kawan yang asik buat diajak kerjasama pas ujian (eh canda)."</p>
-                <button onclick="nextPage(3)" class="btn-secondary">LIHAT HADIAH LU ➔</button>
+            <div class="box">
+                <div class="letter">
+                    HBD ya! Semoga makin sukses, nggak sering telat kelas, dan tetep jadi kawan yang asik. Sehat selalu!
+                </div>
+                <button onclick="showPage('page-final')" class="btn-secondary" style="margin-top: 15px;">KLAIM KADO LU ➔</button>
             </div>
         </div>
 
-        <div id="page3" class="page">
-            <div class="box last-box">
+        <div id="page-final" class="page">
+            <div class="box">
                 <div class="emoji-float">🎁</div>
-                <h2>MISSION ACCOMPLISHED!</h2>
-                <div class="letter">
-                    <p>HBD ya! Makasih udah jadi kawan yang seru. Maaf websitenya agak aneh, yang penting niatnya 100%.</p>
+                <h2>PRESENT FOR YOU</h2>
+                <div class="voucher">
+                    <h3>VOUCHER JAJAN</h3>
+                    <p>Berlaku buat 2 Snack <b>Jack</b></p>
                 </div>
-
-                <div class="voucher" id="voucher">
-                    <h3>VOUCHER KOPI/ES TEH</h3>
-                    <p>Dapat ditukarkan di kantin bareng <b>[Nama Lu]</b></p>
-                    <small>*Berlaku hanya minggu ini</small>
-                </div>
-
-                <button onclick="celebrate()" class="btn-celebrate">KLIK BUAT SELEBRASI! 🎉</button>
-                <p style="margin-top:20px; font-size: 11px; opacity: 0.6;">(Screenshot ini buat bukti ke gua)</p>
+                <button onclick="selebrasi()" class="btn-celebrate">RAYAKAN! 🎉</button>
+                <p style="margin-top: 15px; font-size: 0.7rem; opacity: 0.6;">(Screenshot ini buat bukti ke gua)</p>
             </div>
         </div>
 
     </div>
 
-<script>
-        // LOGIKA TIMER DI AWAL
-        let timeLeft = 5; // Detik timer (bisa lu ganti)
-        const timerElement = document.getElementById('countdown');
-
-        const countdownTimer = setInterval(() => {
-            timeLeft--;
-            timerElement.innerText = timeLeft;
-            if (timeLeft <= 0) {
-                clearInterval(countdownTimer);
-                nextPage(1); // Otomatis pindah ke Security Area
-            }
-        }, 1000);
-
-        // LOGIKA PASSWORD & PAGE
-        const passwordBenar = "nama lu"; 
-
-        function checkPassword() {
-            const input = document.getElementById('passwordInput').value.toLowerCase();
-            if(input === passwordBenar || input === "kamu" || input === "lu") {
-                nextPage(2);
-            } else {
-                alert('SALAH! Masa lupa kawan sendiri? Coba lagi! 🚩');
-            }
-        }
-
-        function nextPage(pageNumber) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            const targetPage = document.getElementById('page' + pageNumber);
-            targetPage.classList.add('active');
-            window.scrollTo(0,0);
-        }
-
-        function celebrate() {
-            confetti({
-                particleCount: 150,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

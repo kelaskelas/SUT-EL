@@ -16,6 +16,8 @@ body {
     padding: 20px;
     display: flex;
     justify-content: center;
+    min-height: 100vh;
+    align-items: center;
 }
 
 .main-container {
@@ -23,21 +25,14 @@ body {
     max-width: 450px;
 }
 
-/* Logic Page */
-.page {
-    display: none;
-}
-.page.active {
-    display: block;
-    animation: slideUp 0.5s ease-out;
-}
+.page { display: none; }
+.page.active { display: block; animation: slideUp 0.5s ease-out; }
 
 @keyframes slideUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Box Style */
 .box {
     background: var(--white);
     border: 3px solid #000;
@@ -49,7 +44,7 @@ body {
 }
 
 .emoji-float {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 10px;
     animation: float 2s infinite ease-in-out;
 }
@@ -59,24 +54,39 @@ body {
     50% { transform: translateY(-10px); }
 }
 
-h1, h2 {
-    font-family: 'Patrick Hand', cursive;
-    margin: 0;
+h1, h2 { font-family: 'Patrick Hand', cursive; margin: 0; }
+h1 span { background: var(--secondary); padding: 0 5px; }
+
+/* Timer Display */
+.timer-display {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
 }
 
-h1 span {
-    background: var(--secondary);
-    padding: 0 5px;
+.time-unit {
+    background: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 65px;
 }
 
-/* Input & Button */
+.time-unit span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Patrick Hand';
+}
+
+/* Forms & Buttons */
 input {
     width: 100%;
     padding: 12px;
     border: 2px solid #000;
     border-radius: 10px;
     margin-bottom: 15px;
-    font-family: 'Poppins', sans-serif;
 }
 
 button {
@@ -86,66 +96,29 @@ button {
     border-radius: 12px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 3px 3px 0px #000;
+    box-shadow: 4px 4px 0px #000;
     transition: 0.2s;
 }
 
-button:active {
-    transform: translate(2px, 2px);
-    box-shadow: 0px 0px 0px #000;
-}
+button:active { transform: translate(2px, 2px); box-shadow: 0px 0px 0px #000; }
 
 .btn-main { background: var(--accent); color: white; }
 .btn-secondary { background: var(--secondary); color: black; }
 .btn-celebrate { background: #3b82f6; color: white; margin-top: 15px; }
 
 /* Bento Grid */
-.grid-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 20px;
-}
+.grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+.bento-item { background: white; border: 3px solid #000; border-radius: 15px; overflow: hidden; box-shadow: 4px 4px 0px #000; }
+.photo-card img { width: 100%; height: 120px; object-fit: cover; }
+.label { font-size: 0.7rem; padding: 5px; font-weight: bold; }
+.stats-card { padding: 10px; font-size: 0.8rem; text-align: left; }
 
-.bento-item {
-    background: white;
-    border: 3px solid #000;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 4px 4px 0px #000;
-}
-
-.photo-card img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-}
-
-.label {
-    font-size: 0.7rem;
-    padding: 5px;
-    font-weight: bold;
-}
-
-.stats-card {
-    padding: 10px;
-    font-size: 0.8rem;
-    text-align: left;
-}
-
-.stats-card ul {
-    padding-left: 15px;
-    margin: 5px 0;
-}
-
-/* Voucher */
 .voucher {
     background: var(--accent);
     color: white;
     padding: 15px;
     border: 3px dashed white;
     border-radius: 15px;
-    margin-top: 15px;
 }
 
 .letter {
@@ -157,50 +130,3 @@ button:active {
     border-radius: 10px;
     border: 1px solid #ddd;
 }
-
-/* Style Khusus Timer */
-.timer-box {
-    background: #ffffff;
-    padding: 50px 20px;
-}
-
-.countdown-number {
-    font-size: 5rem;
-    font-weight: bold;
-    color: var(--accent);
-    font-family: 'Patrick Hand', cursive;
-    margin: 20px 0;
-    text-shadow: 4px 4px 0px #000;
-}
-
-/* Sisanya sama seperti style.css sebelumnya */
-:root {
-    --bg-color: #fdf2f8;
-    --accent: #f472b6;
-    --secondary: #fbbf24;
-    --text: #4c1d95;
-    --white: #ffffff;
-}
-
-body { background-color: var(--bg-color); color: var(--text); font-family: 'Poppins', sans-serif; padding: 20px; display: flex; justify-content: center; }
-.main-container { width: 100%; max-width: 450px; }
-.page { display: none; }
-.page.active { display: block; animation: slideUp 0.5s ease-out; }
-@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-.box { background: var(--white); border: 3px solid #000; border-radius: 20px; padding: 25px; margin-bottom: 20px; box-shadow: 6px 6px 0px #000; text-align: center; }
-.emoji-float { font-size: 3rem; animation: float 2s infinite ease-in-out; }
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-h1, h2 { font-family: 'Patrick Hand', cursive; margin: 0; }
-h1 span { background: var(--secondary); padding: 0 5px; }
-input { width: 100%; padding: 12px; border: 2px solid #000; border-radius: 10px; margin-bottom: 15px; }
-button { width: 100%; padding: 12px; border: 2px solid #000; border-radius: 12px; font-weight: bold; cursor: pointer; box-shadow: 3px 3px 0px #000; transition: 0.2s; }
-.btn-main { background: var(--accent); color: white; }
-.btn-secondary { background: var(--secondary); color: black; }
-.btn-celebrate { background: #3b82f6; color: white; margin-top: 15px; }
-.grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.bento-item { background: white; border: 3px solid #000; border-radius: 15px; overflow: hidden; box-shadow: 4px 4px 0px #000; }
-.photo-card img { width: 100%; height: 120px; object-fit: cover; }
-.label { font-size: 0.7rem; padding: 5px; font-weight: bold; }
-.stats-card { padding: 10px; font-size: 0.8rem; text-align: left; }
-.voucher { background: var(--accent); color: white; padding: 15px; border: 3px dashed white; border-radius: 15px; }
-.letter { font-family: 'Patrick Hand', cursive; font-size: 1.2rem; text-align: left; background: #fff9c4; padding: 15px; border-radius: 10px; border: 1px solid #ddd; }
